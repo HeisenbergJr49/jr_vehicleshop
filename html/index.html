@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jr Vehicle Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="container" class="hidden">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <h1 id="shopTitle">Jr Vehicle Shop</h1>
+            </div>
+            <div class="player-info">
+                <div class="money">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span id="playerMoney">$0</span>
+                </div>
+                <button id="closeBtn" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar - Categories -->
+            <div class="sidebar">
+                <div class="categories-header">
+                    <h3 data-translate="browse_vehicles">Browse Vehicles</h3>
+                </div>
+                <div id="categories" class="categories">
+                    <!-- Categories will be loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Vehicle Grid -->
+            <div class="vehicle-grid-container">
+                <div id="vehicleGrid" class="vehicle-grid">
+                    <!-- Vehicles will be loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Vehicle Detail Modal -->
+            <div id="vehicleModal" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 id="modalVehicleName">Vehicle Name</h2>
+                        <button id="modalCloseBtn" class="close-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div class="vehicle-image-container">
+                            <img id="modalVehicleImage" src="" alt="Vehicle Image">
+                            <div class="price-tag">
+                                <span id="modalVehiclePrice">$0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="vehicle-info">
+                            <div class="vehicle-brand">
+                                <span id="modalVehicleBrand">Brand</span>
+                            </div>
+                            
+                            <div class="vehicle-stats">
+                                <h4 data-translate="vehicle_details">Vehicle Details</h4>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <div class="stat-label" data-translate="speed">Speed</div>
+                                        <div class="stat-bar">
+                                            <div id="speedBar" class="stat-fill"></div>
+                                        </div>
+                                        <div id="speedValue" class="stat-value">0</div>
+                                    </div>
+                                    
+                                    <div class="stat-item">
+                                        <div class="stat-label" data-translate="acceleration">Acceleration</div>
+                                        <div class="stat-bar">
+                                            <div id="accelerationBar" class="stat-fill"></div>
+                                        </div>
+                                        <div id="accelerationValue" class="stat-value">0</div>
+                                    </div>
+                                    
+                                    <div class="stat-item">
+                                        <div class="stat-label" data-translate="braking">Braking</div>
+                                        <div class="stat-bar">
+                                            <div id="brakingBar" class="stat-fill"></div>
+                                        </div>
+                                        <div id="brakingValue" class="stat-value">0</div>
+                                    </div>
+                                    
+                                    <div class="stat-item">
+                                        <div class="stat-label" data-translate="handling">Handling</div>
+                                        <div class="stat-bar">
+                                            <div id="handlingBar" class="stat-fill"></div>
+                                        </div>
+                                        <div id="handlingValue" class="stat-value">0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button id="testDriveBtn" class="btn btn-secondary">
+                            <i class="fas fa-road"></i>
+                            <span data-translate="test_drive">Test Drive</span>
+                        </button>
+                        <button id="purchaseBtn" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span data-translate="buy">Buy</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchase Confirmation Modal -->
+            <div id="confirmModal" class="modal hidden">
+                <div class="modal-content small">
+                    <div class="modal-header">
+                        <h2 data-translate="purchase_vehicle">Purchase Vehicle</h2>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <p id="confirmText">Are you sure you want to purchase this vehicle?</p>
+                        <div class="confirm-details">
+                            <div class="confirm-vehicle" id="confirmVehicleName">Vehicle Name</div>
+                            <div class="confirm-price" id="confirmPrice">$0</div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button id="cancelPurchaseBtn" class="btn btn-secondary">
+                            <span data-translate="close">Cancel</span>
+                        </button>
+                        <button id="confirmPurchaseBtn" class="btn btn-primary">
+                            <i class="fas fa-check"></i>
+                            <span data-translate="buy">Confirm Purchase</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loadingScreen" class="loading-screen">
+            <div class="spinner"></div>
+            <p>Loading vehicles...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
